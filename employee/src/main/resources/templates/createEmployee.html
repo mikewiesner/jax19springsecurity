@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PTO Application</title>
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+	$(function() {
+		$("#startDate").datepicker({
+			dateFormat : $("#startDate").attr("format")
+		});
+		$("#birthday").datepicker({
+			dateFormat : $("#birthday").attr("format")
+		});
+	});
+</script>
+</head>
+
+<body>
+	<div th:replace="navigation :: navigation"></div>
+	<section th:replace="navigation :: greeting"></section>
+
+
+	<section class="section">
+		<div class="container">
+			<h1 class="title">New Employee</h1>
+
+
+			<form action="#" th:action="@{/employee}" th:object="${employee}"
+				method="post">
+
+				<div class="field">
+					<label class="label">First name</label>
+					<div class="control has-icons-left">
+						<input class="input is-rounded" type="text" id="firstname"
+							th:field="*{firstname}" /> <span class="icon is-left"><i
+							class="far fa-user"></i> </span>
+					</div>
+				</div>
+
+				<div class="field">
+					<label class="label">Last name</label>
+					<div class="control has-icons-left">
+						<input class="input is-rounded" type="text" id="lastname"
+							th:field="*{lastname}" /> <span class="icon is-left"><i
+							class="far fa-user"></i> </span>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label">Email</label>
+					<div class="control has-icons-left">
+						<input class="input is-rounded" type="text" id="email"
+							th:field="*{email}" /> <span class="icon is-left"><i
+							class="far fa-envelope"></i></span>
+					</div>
+				</div>
+
+				<div class="field">
+					<label class="label">Start date</label>
+					<div class="control has-icons-left">
+						<input class="input is-rounded" type="text" id="startDate"
+							format="yy-mm-dd" th:field="*{startDate}" max="10" maxlength="10" />
+						<span class="icon is-left"> <i class="far fa-calendar"></i>
+						</span>
+					</div>
+				</div>
+
+				<div class="field">
+					<label class="label">Birtday</label>
+					<div class="control has-icons-left">
+						<input class="input is-rounded" type="text" id="birthday"
+							format="yy-mm-dd" th:field="*{birthday}" /> <span
+							class="icon is-left"> <i class="fas fa-birthday-cake"></i></span>
+					</div>
+				</div>
+
+				<div class="control">
+					<button class="button is-primary">Create employee record</button>
+				</div>
+			</form>
+
+
+
+		</div>
+	</section>
+</body>
+
+</html>

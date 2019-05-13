@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PTO Application</title>
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+	<div th:replace="navigation :: navigation"></div>
+	<section th:replace="navigation :: greeting"></section>
+
+	<section class="section">
+		<div class="container">
+			<h1 class="title">All employees</h1>
+
+			<table class="table is-striped is-narrow is-hoverable is-bordered">
+				<thead>
+					<tr>
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>Email</th>
+						<th>Start Date</th>
+						<th>Birthday</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>Email</th>
+						<th>Start Date</th>
+						<th>Birthday</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr th:each="employee : ${employeeList}">
+						<td th:text="${employee.firstname}">Mike</td>
+						<td th:text="${employee.lastname}">Wiesner</td>
+						<td th:text="${employee.email}">no-reply@mwiesner.com</td>
+						<td th:text="${employee.startDate}">2007-04-01</td>
+						<td th:text="${employee.birthday}">2015-10-21</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+</body>
+
+</html>

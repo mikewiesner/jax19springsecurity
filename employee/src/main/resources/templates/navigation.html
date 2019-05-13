@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PTO Application</title>
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+	<div class="container" th:fragment="navigation">
+		<nav class="navbar is-transparent">
+			<div class="navbar-brand"></div>
+
+			<div id="mainNavbar" class="navbar-menu is-active">
+				<div class="navbar-start">
+
+					<a class="navbar-item"
+						href="http://localhost:8081/oauth2/authorization/keycloak">
+						PTOs</a>
+
+					<div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link" href="http://localhost:8082"> Employee
+							Management </a>
+						<div class="navbar-dropdown is-boxed">
+							<a class="navbar-item" href="http://localhost:8082/employee">
+								List Employees </a> <a class="navbar-item"
+								href="http://localhost:8082/employee?form"> Create Employee </a>
+						</div>
+					</div>
+					<a class="navbar-item"
+						href="http://localhost:8082/logout ">
+						Logout</a>
+
+				</div>
+			</div>
+		</nav>
+	</div>
+
+
+	<section class="hero is-success" th:fragment="greeting">
+		<div class="hero-body">
+			<div class="container">
+				<h1 class="title">Welcome to the Employee Management App!</h1>
+				<h2 class="subtitle">
+					<p th:text="${username}">Mike Wiesner</p>
+				</h2>
+			</div>
+		</div>
+	</section>
+</html>
